@@ -7,30 +7,33 @@
         mc:Ignorable="d"
         Title="Переводчик" Height="300" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
-    <Grid Width="330" HorizontalAlignment="Left" Background="LightBlue">
+    <Grid>
+        <Grid Width="330" HorizontalAlignment="Left" Background="LightBlue">
 
-        <TextBlock Text ="Введите текст" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Top" 
-                   Margin="0, 40, 0, 0"/>
-        <TextBlock x:Name="textBlock" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Top" 
-                   Margin="0, 70, 0, 0"/>
-        <TextBox x:Name="textBox1" 
-                 HorizontalAlignment="Center" 
-                 VerticalAlignment="Top" 
-                 Margin="0, 110, 0, 0" 
-                 Width="200" Height="80" TextWrapping="Wrap"
-                 VerticalScrollBarVisibility="Auto"
-                 AcceptsReturn="True"
-                 PreviewMouseLeftButtonUp="textBox1_PreviewMouseLeftButtonUp"/>
-        <Button  x:Name="btn" Click="onClick"
-                 Content="Перевести"
-                 Width="200" Height="25" 
-                 Margin="0, 210, 0, 0" 
-                 HorizontalAlignment="Center" 
-                 VerticalAlignment="Top"
-                 IsDefault="True"/>
+            <TextBlock Text ="Введите текст" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top" 
+                       Margin="0, 40, 0, 0"/>
+            <TextBlock x:Name="textBlock" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top" 
+                       Margin="0, 70, 0, 0"/>
+            <TextBox x:Name="textBox1" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Top" 
+                     Margin="0, 110, 0, 0" 
+                     Width="200" Height="80" TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"
+                     AcceptsReturn="True"
+                     PreviewMouseLeftButtonUp="textBox1_PreviewMouseLeftButtonUp"/>
+            <Button  x:Name="btn" Click="onClick"
+                     Content="Перевести"
+                     Width="200" Height="25" 
+                     Margin="0, 210, 0, 0" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Top"
+                     IsDefault="True"/>
+        </Grid>
+        <Grid Width="670" Background="LightCoral" HorizontalAlignment="Right"/>
     </Grid>
 </Window>
