@@ -47,21 +47,33 @@ namespace Translator
 
         };
         bool canHandleMouseClick = false;
+        bool isValidate = true;
+        bool isEng = true;
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void isEnglish(string s)
+        {
+            if (dict.Keys.Contains(s)) isEng = true;
+            else isEng = false;
         }
         private void translate(string text)
         {
             string ans = "", lang = "";
             List<string> l = new List<string>();
-            foreach (var i in text.ToCharArray()) l.Add(i.ToString());
-            if (dict.Keys.Contains(l[0])) lang = "en";
-            else lang = "ru";
+            foreach (var i in text.ToCharArray())
+            {
+                l.Add(i.ToString());
+                if (dict.Keys.Contains(l[0])) isEng = true;
+                else isEng = false;
+            }
+            //    if (dict.Keys.Contains(l[0])) lang = "en";
+            //else lang = "ru";
             foreach (var k in l)
             {
                 if (k == " " || k == "\r" || k == "\n") ans += k;
-                else if (lang == "en") ans += dict[k];
+                else if (isEng == true) ans += dict[k];
                 else ans += findItem(k);
             }
             textBlock.Text = "";
@@ -74,13 +86,15 @@ namespace Translator
             foreach (var j in list_text)
             {
                 i = j.ToString();
-                if (!dict.Keys.Contains(i) && !dict.Values.Contains(i) && i != " " && i != "\n")
+                if (!dict.Keys.Contains(i) && !dict.Values.Contains(i) && i != " " && i != "\n" && i != "\r")
                 {
-                    textBlock.Text = "Введены некорректные символы";
-                    canHandleMouseClick = true;
+                    isValidate = false;
+                    break;
                 }
-                else translate(text);
             }
+            if (isValidate) translate(text);
+            else { textBlock.Text = "Введены некорректные символы"; canHandleMouseClick = true; }
+            
         }
         private string findItem(string item)
         {
@@ -90,15 +104,16 @@ namespace Translator
         }
         private void onClick(object sender, RoutedEventArgs e)
         {
-            canHandleMouseClick = false;
-            validation(textBox1.Text);
+            try {
+                canHandleMouseClick = false;
+                validation(textBox1.Text);
+            } catch (Exception ex) { MessageBox.Show(ex.ToString()); }
         }
 
         private void textBox1_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (canHandleMouseClick)
             {
-
                 textBlock.Text = "";
                 textBox1.Text = "";
                 canHandleMouseClick = false;
