@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:Translator"
         mc:Ignorable="d"
         Title="Переводчик" Height="300" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-
     <Grid>
         <Grid Width="330" HorizontalAlignment="Left" Background="LightBlue">
 
