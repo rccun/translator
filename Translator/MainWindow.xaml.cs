@@ -43,6 +43,13 @@ namespace Translator
 {"w","ц"},
 {"x","ч"},
 {"y","н"},
+{".","ю"},
+{",","б"},
+{"]","ъ"},
+{"[","х"},
+{"'","э"},
+{";","ж"},
+{"`","ё"},
 {"z","я" }
 
         };
@@ -88,6 +95,7 @@ namespace Translator
                 i = j.ToString();
                 if (!dict.Keys.Contains(i) && !dict.Values.Contains(i) && i != " " && i != "\n" && i != "\r")
                 {
+                    MessageBox.Show(i);
                     isValidate = false;
                     break;
                 }
