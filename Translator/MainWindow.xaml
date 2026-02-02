@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Translator"
         mc:Ignorable="d"
-        Title="Переводчик" Height="300" Width="330" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Переводчик" Height="300" Width="660" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid Width="330" HorizontalAlignment="Left" Background="LightBlue">
 
@@ -31,7 +31,33 @@
                      Margin="0, 210, 0, 0" 
                      HorizontalAlignment="Center" 
                      VerticalAlignment="Top"
-                     IsDefault="True"/>
+                     />
+        </Grid>
+        <Grid x:Name="bgItem" Width="330" HorizontalAlignment="Right" Background="LightGreen">
+            <TextBlock x:Name="keyWord"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top" 
+                       Width="230"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       Margin="0, 30, 0, 0"/>
+            <TextBlock x:Name="rightAnswer"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top" 
+                       Margin="0, 100, 0, 0"/>
+            <TextBox x:Name="answer"
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Top" 
+                     Margin="0, 130, 0, 0" 
+                     Width="150" Height="20" TextWrapping="Wrap"
+                     PreviewMouseLeftButtonUp="textBox1_PreviewMouseLeftButtonUp"/>
+            <Button  x:Name="btn2" Click="onClick2"
+         Content="Проверить"
+         Width="200" Height="25" 
+         Margin="0, 210, 0, 0" 
+         HorizontalAlignment="Center" 
+         VerticalAlignment="Top"
+         IsDefault="True"/>
         </Grid>
     </Grid>
 </Window>
